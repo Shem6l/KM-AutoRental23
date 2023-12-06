@@ -118,7 +118,7 @@ namespace km_Auto_Rental
             }
             else
             {
-                Response.Write("<script>alert('Vehicle does not exist');</script>");
+                Response.Write("<script>alert('Admin does not exist');</script>");
             }
         }
     }
