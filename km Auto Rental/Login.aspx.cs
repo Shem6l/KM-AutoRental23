@@ -37,6 +37,11 @@ namespace km_Auto_Rental
                         //Response.Write("<script>alert('" + dr.GetValue(0).ToString() + "');</script>");
                         Session["Username"] = dr.GetValue(4).ToString();
                         Session["FirstName"] = dr.GetValue(1).ToString();
+                        Session["LastName"] = dr.GetValue(2).ToString();
+                        Session["Telephone"] = dr.GetValue(6).ToString();
+                        Session["Email"] = dr.GetValue(3).ToString();
+                        Session["DriverNum"] = dr.GetValue(0).ToString();
+                        Session["Password"] = dr.GetValue(5).ToString();
                         Session["role"] = "customer";
                     }
                     Response.Redirect("User-Profile.aspx");

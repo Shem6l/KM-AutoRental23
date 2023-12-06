@@ -12,36 +12,14 @@ namespace km_Auto_Rental
 {
     public partial class User_Profile : System.Web.UI.Page
     {
+        string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (!IsPostBack)
-            {
-                // Assuming you have the user's ID stored in a session variable
-                string userId = Session["userId"].ToString();
-
-                // Call a method to fetch user data from the database based on the user ID
-                UserData userData = SelectedDatesCo(userId);
-
-                // Set the text of each TextBox with the corresponding user data
-                Fnmprl.Text = userData.FirstName;
-                Lnamepfl.Text = userData.LastName;
-                PhnPfl.Text = userData.PhoneNumber;
-                EmlPfl.Text = userData.Email;
-                DLpfl.Text = userData.DriversLicense;
-                UsrPfl.Text = userData.Username;
-                PassPfl.Text = userData.Password;
-            }
-        }
-        public class UserData
-        {
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public string PhoneNumber { get; set; }
-            public string Email { get; set; }
-            public string DriversLicense { get; set; }
-            public string Username { get; set; }
-            public string Password { get; set; }
-        }*/
+           Fnmprl.Text = Session["FirstName"].ToString();
+           Lnamepfl.Text = Session["LastName"].ToString();
+           Fnmprl.Text = Session["FirstName"].ToString();
+           Fnmprl.Text = Session["FirstName"].ToString();
         }
     }
 }
