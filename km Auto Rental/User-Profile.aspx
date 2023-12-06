@@ -112,7 +112,19 @@
 
 
             <div class="card-body">
-                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"></asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:KMCarRentalDBConnectionString4 %>" SelectCommand="SELECT * FROM [Rentals]"></asp:SqlDataSource>
+                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="RentalID" DataSourceID="SqlDataSource1">
+                    <Columns>
+                        <asp:BoundField DataField="RentalID" HeaderText="RentalID" ReadOnly="True" SortExpression="RentalID" />
+                        <asp:BoundField DataField="AdminID" HeaderText="AdminID" SortExpression="AdminID" />
+                        <asp:BoundField DataField="DriversNumber" HeaderText="DriversNumber" SortExpression="DriversNumber" />
+                        <asp:BoundField DataField="Chassis_Number" HeaderText="Chassis_Number" SortExpression="Chassis_Number" />
+                        <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
+                        <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
+                        <asp:BoundField DataField="TotalCost" HeaderText="TotalCost" SortExpression="TotalCost" />
+                        <asp:BoundField DataField="PaymentMethod" HeaderText="PaymentMethod" SortExpression="PaymentMethod" />
+                    </Columns>
+                </asp:GridView>
            </div>      
      </div>
 </div>
