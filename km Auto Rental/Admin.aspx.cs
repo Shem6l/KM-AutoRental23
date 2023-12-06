@@ -70,7 +70,7 @@ namespace km_Auto_Rental
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Response.Write("<script>alert('Admin was deleted successfully');</script>");
-                //clearform();
+                clearform();
                 Employeetbl.DataBind();
             }
             catch (Exception ex)
@@ -149,7 +149,7 @@ namespace km_Auto_Rental
                 cmd.ExecuteNonQuery();
                 con.Close();
                 // Response.Write("<script>alert('Vehicle added to database');</script>");
-                //clearform();
+                clearform();
                 Employeetbl.DataBind();
             }
             catch (Exception ex)
