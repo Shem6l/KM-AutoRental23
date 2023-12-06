@@ -176,7 +176,7 @@ namespace km_Auto_Rental
                 cmd.ExecuteNonQuery();
                 con.Close();
                 //Response.Write("<script>alert('Vehicle price updated successfully');</script>");
-                //clearform();
+                clearform();
                 Employeetbl.DataBind();
 
             }
@@ -191,13 +191,25 @@ namespace km_Auto_Rental
             if (checkifAdminExist())
             {
                 updateadmin();
+                clearform();
                 //Response.Write("<script>alert('Admin was deleted');</script>");
 
             }
             else
             {
                 Response.Write("<script>alert('Admin does not exist');</script>");
+                clearform();
             }
+        }
+
+        void clearform()
+        {
+            EmpID.Text = "";
+            EmpLnm.Text = "";
+            TextBox2.Text = "";
+            TextBox3.Text = "";
+            EmpMl.Text = "";
+            //RentRate.Text = "";
         }
     }
 }

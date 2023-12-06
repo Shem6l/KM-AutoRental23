@@ -341,7 +341,7 @@ namespace km_Auto_Rental
 
                 cmd.ExecuteNonQuery();
                 con.Close();
-                //Response.Write("<script>alert('Vehicle plate updated successfully');</script>");
+                Response.Write("<script>alert('Vehicle plate updated successfully');</script>");
                 clearform();
                 InvTabl.DataBind();
 
