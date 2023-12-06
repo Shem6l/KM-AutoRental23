@@ -37,12 +37,27 @@
                     <asp:Button ID="Go" class="btn btn-primary" runat="server" Text="GO" OnClick="Go_Click" />
                     
                 </div>
+
+                  <div class="col-md-4">
+       <label>First Name:</label>
+       <asp:TextBox ID="TextBox1" runat="server" placeholder="First Name"></asp:TextBox>
+     </div>
+
+    <div class="col-md-4">
+      <label>Last Name:</label>
+      <asp:TextBox ID="EmpLnm" runat="server" placeholder="Last Name"></asp:TextBox>
+    </div>  
+                  <div class="col-md-4">
+      <label>User Name:</label>
+      <asp:TextBox ID="TextBox2" runat="server" placeholder="User Name"></asp:TextBox>
+    </div>
+                  <div class="col-md-4">
+      <label>Password:</label>
+      <asp:TextBox ID="TextBox3" runat="server" placeholder="Password"></asp:TextBox>
+    </div>
                 
 
-                <div class="col-md-8">
-                  <label>Employee Name:</label>
-                  <asp:TextBox ID="EmpNme" runat="server" placeholder="Full Name"></asp:TextBox>
-                </div>
+                
                </div>
 
                 <div class="row">
@@ -55,12 +70,12 @@
                 <hr />
                   <div class="row">
                     <div class="col-md-4">
-                       <asp:Button ID="AddBtn" class="btn btn-success" runat="server" Text="ADD" />
+                       <asp:Button ID="AddBtn" class="btn btn-success" runat="server" Text="ADD" OnClick="AddBtn_Click" />
                     </div>
 
 
                        <div class="col-md-4">
-                           <asp:Button ID="UpBtn" class="btn btn-primary" runat="server" Text="UPDATE" />
+                           <asp:Button ID="UpBtn" class="btn btn-primary" runat="server" Text="UPDATE" OnClick="UpBtn_Click" />
                     </div>
 
 
