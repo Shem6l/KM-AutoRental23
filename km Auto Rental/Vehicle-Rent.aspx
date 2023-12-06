@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <asp:Button class="btn btn-primary" ID="Look1" runat="server" Text="LOOK UP" style="margin-top:20px;"/>
+                    <asp:Button class="btn btn-primary" ID="Look1" runat="server" Text="LOOK UP" style="margin-top:20px;" OnClick="Look1_Click"/>
                 </div>
                </div>
 
