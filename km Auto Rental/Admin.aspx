@@ -34,7 +34,7 @@
                 <div class="col-md-4">
                    <label>Employee ID:</label> 
                    <asp:TextBox ID="EmpID" runat="server" placeholder="ID"></asp:TextBox>
-                    <asp:Button ID="Go" class="btn btn-primary" runat="server" Text="GO" />
+                    <asp:Button ID="Go" class="btn btn-primary" runat="server" Text="GO" OnClick="Go_Click" />
                     
                 </div>
                 
@@ -65,7 +65,7 @@
 
 
                        <div class="col-md-4">
-                           <asp:Button ID="DelBtn" class="btn btn-danger" runat="server" Text="DELETE" />
+                           <asp:Button ID="DelBtn" class="btn btn-danger" runat="server" Text="DELETE" OnClick="DelBtn_Click" />
                     </div>
                  </div>
 
@@ -86,7 +86,15 @@
                </center>
              
            <div class="card-body">
-               <asp:GridView ID="Employeetbl" class="table table-striped table-bordered" runat="server"></asp:GridView>
+               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:KMCarRentalDBConnectionString3 %>" SelectCommand="SELECT [AdminID], [Username], [FirstName], [LastName] FROM [Admins]"></asp:SqlDataSource>
+               <asp:GridView ID="Employeetbl" class="table table-striped table-bordered" runat="server" AutoGenerateColumns="False" DataKeyNames="AdminID" DataSourceID="SqlDataSource1">
+                   <Columns>
+                       <asp:BoundField DataField="AdminID" HeaderText="AdminID" ReadOnly="True" SortExpression="AdminID" />
+                       <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
+                       <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
+                       <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+                   </Columns>
+               </asp:GridView>
                 
            </div>      
      </div>
