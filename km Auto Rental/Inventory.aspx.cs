@@ -16,6 +16,7 @@ namespace km_Auto_Rental
         protected void Page_Load(object sender, EventArgs e)
         {
             InvTabl.DataBind();
+            clearform();
         }
 
         protected void InvAddBtn_Click(object sender, EventArgs e)
