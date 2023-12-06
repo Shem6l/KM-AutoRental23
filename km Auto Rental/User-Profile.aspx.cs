@@ -18,8 +18,11 @@ namespace km_Auto_Rental
         {
            Fnmprl.Text = Session["FirstName"].ToString();
            Lnamepfl.Text = Session["LastName"].ToString();
-           Fnmprl.Text = Session["FirstName"].ToString();
-           Fnmprl.Text = Session["FirstName"].ToString();
+           PhnPfl.Text = Session["Telephone"].ToString();
+           EmlPfl.Text = Session["Email"].ToString();
+           DLpfl.Text = Session["DriverNum"].ToString();
+           PassPfl.Text = Session["Password"].ToString();
+           UsrPfl.Text = Session["Username"].ToString();
         }
     }
 }
