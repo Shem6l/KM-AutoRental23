@@ -133,5 +133,37 @@ namespace km_Auto_Rental
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+
+        /*void addnewRental()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("INSERT INTO Rentals (RentalID, AdminID, DriversNumber, Chassis_Number, StartDate, EndDate, TotalCost, PaymentMethod) VALUES " +
+                    "(@rid, @adminid, @dnum, @cnum, @sdate, @enddate, @tcost, @payment)", con);
+
+               // cmd.Parameters.AddWithValue("@rid", TextBox1.Text.Trim());
+                cmd.Parameters.AddWithValue("@platenum", TextBox2.Text);
+                cmd.Parameters.AddWithValue("@make", Vmake.Text.Trim());
+                cmd.Parameters.AddWithValue("@model", Model.Text.Trim());
+                cmd.Parameters.AddWithValue("@year", InvYear.Text.Trim());
+                cmd.Parameters.AddWithValue("@rentrate", RentRate.Text.Trim());
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+                // Response.Write("<script>alert('Vehicle added to database');</script>");
+                //clearform();
+                //InvTabl.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
+        }*/
     }
 }
