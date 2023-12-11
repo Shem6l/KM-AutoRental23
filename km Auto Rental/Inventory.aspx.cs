@@ -16,7 +16,7 @@ namespace km_Auto_Rental
         protected void Page_Load(object sender, EventArgs e)
         {
             InvTabl.DataBind();
-            clearform();
+            //clearform();
         }
 
         protected void InvAddBtn_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace km_Auto_Rental
                     else
                     {
                         updateVehicleplate();
-                        Response.Write("<script>alert('Vehicle plate was updated');</script>");
+                        //Response.Write("<script>alert('Vehicle plate was updated');</script>");
                     }
                 }
                 else
@@ -74,13 +74,13 @@ namespace km_Auto_Rental
 
         protected void GoInvBtn_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(TextBox1.Text))
+            if(String.IsNullOrEmpty(TextBox1.Text.Trim())&& String.IsNullOrEmpty(TextBox2.Text.Trim()))
+            {
+                getvehiclebyprice();
+            }
+            else if (String.IsNullOrEmpty(TextBox1.Text.Trim()))
             {
                 getvehiclebyplate();
-            }
-            else if(String.IsNullOrEmpty(TextBox2.Text))
-            {    
-               getvehiclebyprice();
             }
             else
             {
@@ -171,7 +171,7 @@ namespace km_Auto_Rental
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Vehicles where Chassis_Number='" + TextBox1.Text.Trim() + "';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Vehicles where Chassis_Number ='" + TextBox1.Text.Trim() + "';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
