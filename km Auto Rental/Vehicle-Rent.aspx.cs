@@ -50,7 +50,33 @@ namespace km_Auto_Rental
 
         protected void issue_Click(object sender, EventArgs e)
         {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
 
+                SqlCommand cmd = new SqlCommand("INSERT INTO Rentals (AdminiID, DriversNumber, Chassis_Number, StartDate, EndDate, TotalCost, PaymentMethod) VALUES " +
+                    "(@Adminid, @driversnum, @chassisnum, @startdate, @enddate, @totalcost, @paymentm)", con);
+
+                cmd.Parameters.AddWithValue("@Adminid", Session["AdminID"]);
+                cmd.Parameters.AddWithValue("@driversnum", ClID.Text.Trim());
+                cmd.Parameters.AddWithValue("@chassisnum", Lnamepfl.Text.Trim());
+                cmd.Parameters.AddWithValue("@startdate", UsrPfl.Text.Trim());
+                cmd.Parameters.AddWithValue("@enddate", Nwpss.Text.Trim());
+                cmd.Parameters.AddWithValue("@totalcost", "0");
+                cmd.Parameters.AddWithValue("@paymentm", "cash");
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+                Response.Write("<script>alert('Rent Successful.');</script>");
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
         }
 
         protected void Look1_Click(object sender, EventArgs e)

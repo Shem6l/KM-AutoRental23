@@ -37,10 +37,11 @@ namespace km_Auto_Rental
                         Session["Username"] = dr.GetValue(1).ToString();
                         Session["FirstName"] = dr.GetValue(3).ToString();
                         Session["LastName"] = dr.GetValue(4).ToString();
+                        Session["AdminID"] = dr.GetValue(0).ToString();
                         Session["role"] = "Admin";
                         
                     }
-                    Response.Redirect("Admin.aspx");
+                    Response.Redirect("Vehicle-Rent.aspx");
                 }
                 else
                 {
