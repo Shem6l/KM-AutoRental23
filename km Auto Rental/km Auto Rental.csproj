@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Rent_Vehicle.aspx" />
     <Content Include="Master_Admin_Dash.aspx" />
     <Content Include="About Us.aspx" />
     <Content Include="Admin-Login.aspx" />
@@ -2168,6 +2169,13 @@
     <Content Include="Contact.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Rent_Vehicle.aspx.cs">
+      <DependentUpon>Rent_Vehicle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rent_Vehicle.aspx.designer.cs">
+      <DependentUpon>Rent_Vehicle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Master_Admin_Dash.aspx.cs">
       <DependentUpon>Master_Admin_Dash.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
