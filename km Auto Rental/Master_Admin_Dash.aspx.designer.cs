@@ -11,7 +11,7 @@ namespace km_Auto_Rental
 {
 
 
-    public partial class About_Us
+    public partial class Master_Admin_Dash
     {
     }
 }
