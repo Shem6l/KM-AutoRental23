@@ -1,18 +1,27 @@
-﻿
-<section style="background-image: url('Images/Contact-blue.jpg'); height:100px;"> 
-<div id="hometop">
- <div class="container text-center">
-  <div class="row align-items-end">
-    <div class="col">
-      <h2><strong>MASTER ADMIN</strong></h2>
-        <p>.</p>
-    </div>
-    
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Page.Master" AutoEventWireup="true" CodeBehind="Master_Admin_Dash.aspx.cs" Inherits="km_Auto_Rental.Master_Admin_Dash" %>
 
-  </div>
- </div>
-</div>
-</section> <!--Section 1 Banner with the blue background-->
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        section {
+            background-image: url('Images/Contact-blue.jpg');
+            height: 100px;
+        }
+    </style>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <section>
+        <div id="hometop">
+            <div class="container text-center">
+                <div class="row align-items-end">
+                    <div class="col">
+                        <h2><strong>MASTER ADMIN</strong></h2>
+                        <p>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!--Section 1 Banner with the blue background-->
 
 
 <div class="container-fluid">
@@ -69,4 +78,5 @@
 </div> <!--This Ends Card BODY-->
 </div>
 </div>
+    </asp:Content>
 
