@@ -45,6 +45,18 @@ namespace km_Auto_Rental
                     LogoutButton.Visible = true;
                     
                 }
+                else if (Session["role"].Equals("Master_Admin"))
+                {
+                    LinkButton1.Visible = false;
+                    LoginLinkButton.Visible = false;
+                    SignUpLinkButton.Visible = false;
+                    LinkButton2.Visible = true;
+                    ProfileLinkButton.Visible = true;
+                    LinkButton3.Visible = true;
+                    LinkButton4.Visible = true;
+                    LogoutButton.Visible = true;
+
+                }
             }
             catch (Exception ex)
             {

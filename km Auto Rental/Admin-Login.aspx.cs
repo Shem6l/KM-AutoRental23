@@ -22,36 +22,63 @@ namespace km_Auto_Rental
         {
             try
             {
-                SqlConnection con = new SqlConnection(strcon);
-                if (con.State == ConnectionState.Closed)
+                using (SqlConnection con = new SqlConnection(strcon))
                 {
                     con.Open();
-                }
-                SqlCommand cmd = new SqlCommand("select * from Admins where Username='" + AdmName.Text.Trim() + "'AND password='"+ Admpassrd.Text.Trim() + "'", con);
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.HasRows)
-                {
-                    while (dr.Read())
+
+                    // Use parameterized queries to prevent SQL injection
+                    SqlCommand cmdAdmin = new SqlCommand("SELECT * FROM Admins WHERE Username = @Username AND Password = @Password", con);
+                    cmdAdmin.Parameters.AddWithValue("@Username", AdmName.Text.Trim());
+                    cmdAdmin.Parameters.AddWithValue("@Password", Admpassrd.Text.Trim());
+
+                    SqlCommand cmdMasterAdmin = new SqlCommand("SELECT * FROM Master_Admin WHERE Username = @Username AND Password = @Password", con);
+                    cmdMasterAdmin.Parameters.AddWithValue("@Username", AdmName.Text.Trim());
+                    cmdMasterAdmin.Parameters.AddWithValue("@Password", Admpassrd.Text.Trim());
+
+                    using (SqlDataReader dr = cmdAdmin.ExecuteReader())
                     {
-                        //Response.Write("<script>alert('" + dr.GetValue(1).ToString() + "');</script>");
-                        Session["Username"] = dr.GetValue(1).ToString();
-                        Session["FirstName"] = dr.GetValue(3).ToString();
-                        Session["LastName"] = dr.GetValue(4).ToString();
-                        Session["AdminID"] = dr.GetValue(0).ToString();
-                        Session["role"] = "Admin";
-                        
+                        if (dr.HasRows)
+                        {
+                            while (dr.Read())
+                            {
+                                SetSessionVariables(dr, "Admin");
+                            }
+                            Response.Redirect("Vehicle-Rent.aspx");
+                            return;
+                        }
                     }
-                    Response.Redirect("Vehicle-Rent.aspx");
-                }
-                else
-                {
+
+                    using (SqlDataReader dr2 = cmdMasterAdmin.ExecuteReader())
+                    {
+                        if (dr2.HasRows)
+                        {
+                            while (dr2.Read())
+                            {
+                                SetSessionVariables(dr2, "Master_Admin");
+                            }
+                            Response.Redirect("Master_Admin_Dash.aspx");
+                            return;
+                        }
+                    }
+
                     Response.Write("<script>alert('Invalid credentials');</script>");
                 }
-                
             }
-            catch (Exception ex){
-                
+            catch (Exception ex)
+            {
+                // Log the exception details
+                Response.Write("<script>alert('An error occurred');</script>");
             }
         }
+
+        private void SetSessionVariables(SqlDataReader dr, string role)
+        {
+            Session["Username"] = dr.GetValue(1).ToString();
+            Session["FirstName"] = dr.GetValue(3).ToString();
+            Session["LastName"] = dr.GetValue(4).ToString();
+            Session["AdminID"] = dr.GetValue(0).ToString();
+            Session["role"] = role;
+        }
+
     }
 }
